@@ -15,37 +15,37 @@
 }
 
 .ng-table {
-                width: 100%;
+    width: 100%;
 }
- 
+
 .ng-table > thead > tr > th {
-                text-align: left;
-                border: 0;
+    text-align: left;
+    border-bottom: 1px solid #c8c8c8;
 }
  
 .ng-table > tbody > tr > th, .ng-table > tfoot > tr > th, .ng-table > thead > tr > td, .ng-table > tbody > tr > td, .ng-table > tfoot > tr > td {
-                height: 50px;
-		border-bottom: 1px solid #e8e8e8;
+    height: 50px;
+    border-bottom: 1px solid #e8e8e8;
 }
  
 .ng-table-filters {
-                height: 60px;
+    height: 60px;
 }
  
 .ng-table-filters .filter {
-                vertical-align: top;
+    vertical-align: top;
 }
  
 .ng-table > thead > tr > th {
-                padding-bottom: 0;
-                padding-top      : 0;
+    padding-bottom: 0;
+    padding-top : 0;
 }
  
 .actions {
-                margin-bottom: 30px;
+    margin-bottom: 30px;
 }
  
 .table-actions {
-                width: 130px;
+    width: 130px;
 }
 

@@ -6,10 +6,10 @@
     <div>
         <table ng-table>
             <tr ng-repeat="customer in customers">
-                <td data-title="Name">{{customer.name}}</td>
-                <td data-title="Address">{{customer.address}}</td>
-                <td data-title="State">{{customer.state}}</td>
-                <td data-title="Country">{{customer.country}}</td>
+                <td data-title="'Name'">{{customer.name}}</td>
+                <td data-title="'Address'">{{customer.address}}</td>
+                <td data-title="'State'">{{customer.state}}</td>
+                <td data-title="'Country'">{{customer.country}}</td>
                 <td>
                    <div class="table-actions">
                         <a class="btn btn-default" title="View" href="/#!/customers/{{customer._id}}">
@@ -26,23 +26,6 @@
             </tr>
         </table>
     </div>
-
-    <!--
-    <div class="list-group">
-        <a data-ng-repeat="customer in customers" data-ng-href="#!/customers/{{customer._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="customer.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="customer.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="customer.name"></h4>
-            Address: {{customer.address}}<br/>
-            State: {{customer.state}}<br/>
-            Country: {{customer.country}}<br/>
-        </a>
-    </div>
-    -->
 
     <div class="alert alert-warning text-center" data-ng-hide="!customers.$resolved || customers.length">
     	No Customers yet, why don't you <a href="/#!/customers/create">create one</a>?
