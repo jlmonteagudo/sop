@@ -14,26 +14,19 @@
     border-color:#78FA89;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> chapter6
 .ng-table {
                 width: 100%;
 }
  
 .ng-table > thead > tr > th {
                 text-align: left;
-                border: 0;
+                border-bottom: 1px solid #c8c8c8;
 }
  
 .ng-table > tbody > tr > th, .ng-table > tfoot > tr > th, .ng-table > thead > tr > td, .ng-table > tbody > tr > td, .ng-table > tfoot > tr > td {
                 height: 50px;
-<<<<<<< HEAD
                 border-bottom: 1px solid #e8e8e8;
-=======
-		border-bottom: 1px solid #e8e8e8;
->>>>>>> chapter6
 }
  
 .ng-table-filters {
