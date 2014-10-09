@@ -1,11 +1,11 @@
-<section data-ng-controller="CustomersController" data-ng-init="find()">
+<section data-ng-controller="CustomersController">
     <div class="page-header">
         <h1>Customers</h1>
     </div>
 
     <div>
-        <table ng-table>
-            <tr ng-repeat="customer in customers">
+        <table ng-table="tableParams">
+            <tr ng-repeat="customer in $data">
                 <td data-title="'Name'">{{customer.name}}</td>
                 <td data-title="'Address'">{{customer.address}}</td>
                 <td data-title="'State'">{{customer.state}}</td>

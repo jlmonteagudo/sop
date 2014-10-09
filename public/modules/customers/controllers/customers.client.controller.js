@@ -1,9 +1,30 @@
 'use strict';
 
 // Customers controller
-angular.module('customers').controller('CustomersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Customers',
-	function($scope, $stateParams, $location, Authentication, Customers ) {
+angular.module('customers').controller('CustomersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Customers', 'ngTableParams',
+	function($scope, $stateParams, $location, Authentication, Customers, ngTableParams ) {
 		$scope.authentication = Authentication;
+
+		var params = {
+	        page: 1,
+	        count: 5
+		};
+
+
+		var settings = {
+	        total: 0,
+	        counts: [5, 10, 15],
+	        getData: function($defer, params) {
+	        	Customers.get(params.url(), function(response) {
+	        		params.total(response.total);
+	        		$defer.resolve(response.results);
+	        	});
+	        }
+		};
+
+
+    	$scope.tableParams = new ngTableParams(params, settings);
+
 
 		// Create new Customer
 		$scope.create = function() {
@@ -59,7 +80,11 @@ angular.module('customers').controller('CustomersController', ['$scope', '$state
 
 		// Find a list of Customers
 		$scope.find = function() {
-			$scope.customers = Customers.query();
+			var customers = Customers.get();
+			console.log(customers);
+			$scope.customers = customers.results;
+
+			//$scope.customers = Customers.query();
 		};
 
 		// Find existing Customer

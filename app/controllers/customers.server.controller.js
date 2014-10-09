@@ -72,7 +72,13 @@ exports.delete = function(req, res) {
 /**
  * List of Customers
  */
-exports.list = function(req, res) { Customer.find().sort('-created').populate('user', 'displayName').exec(function(err, customers) {
+
+ /*
+exports.list = function(req, res) { 
+
+
+	Customer.find().sort('-created').populate('user', 'displayName').exec(function(err, customers) {
+
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -82,6 +88,57 @@ exports.list = function(req, res) { Customer.find().sort('-created').populate('u
 		}
 	});
 };
+*/
+
+exports.list = function(req, res) { 
+
+	var count = req.query.count || 5;
+	var page = req.query.page || 1;
+
+
+	var filter = {
+		filters : {
+			mandatory : {
+				contains: req.query.filter
+			}
+		}
+	};
+
+
+
+
+	var pagination = {
+		start: (page - 1) * count,
+		count: count
+	};
+
+
+	var sort = {
+		sort: {
+			desc: '_id'
+		}
+	};
+
+
+	Customer
+		.find()
+		.filter(filter)
+		.order(sort)
+		.page(pagination, function(err, customers){
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp(customers);
+			}			
+		});
+
+};
+
+
+
+
 
 /**
  * Customer middleware
