@@ -92,6 +92,8 @@ exports.list = function(req, res) {
 
 exports.list = function(req, res) { 
 
+	var sort;
+	var sortObject = {};
 	var count = req.query.count || 5;
 	var page = req.query.page || 1;
 
@@ -105,18 +107,24 @@ exports.list = function(req, res) {
 	};
 
 
-
-
 	var pagination = {
 		start: (page - 1) * count,
 		count: count
 	};
 
 
-	var sort = {
-		sort: {
-			desc: '_id'
-		}
+	if (req.query.sorting) {
+		var sortKey = Object.keys(req.query.sorting)[0];
+		var sortValue = req.query.sorting[sortKey];
+		sortObject[sortValue] = sortKey;
+	}
+	else {
+		sortObject['desc'] = '_id';
+	}
+
+
+	sort = {
+		sort: sortObject
 	};
 
 

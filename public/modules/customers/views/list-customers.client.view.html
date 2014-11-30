@@ -6,10 +6,10 @@
     <div>
         <table ng-table="tableParams">
             <tr ng-repeat="customer in $data">
-                <td data-title="'Name'">{{customer.name}}</td>
-                <td data-title="'Address'">{{customer.address}}</td>
-                <td data-title="'State'">{{customer.state}}</td>
-                <td data-title="'Country'">{{customer.country}}</td>
+                <td data-title="'Name'" sortable="'name'">{{customer.name}}</td>
+                <td data-title="'Address'" sortable="'address'">{{customer.address}}</td>
+                <td data-title="'State'" sortable="'state'">{{customer.state}}</td>
+                <td data-title="'Country'" sortable="'country'">{{customer.country}}</td>
                 <td>
                     <div class="table-actions">
                 <td>
