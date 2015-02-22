@@ -4,12 +4,12 @@
     </div>
 
     <div>
-        <table ng-table="tableParams">
+        <table ng-table="tableParams" show-filter="true">
             <tr ng-repeat="customer in $data">
-                <td data-title="'Name'" sortable="'name'">{{customer.name}}</td>
-                <td data-title="'Address'" sortable="'address'">{{customer.address}}</td>
-                <td data-title="'State'" sortable="'state'">{{customer.state}}</td>
-                <td data-title="'Country'" sortable="'country'">{{customer.country}}</td>
+                <td data-title="'Name'" sortable="'name'" filter="{ 'name': 'text' }">{{customer.name}}</td>
+                <td data-title="'Address'" sortable="'address'" filter="{ 'address': 'text' }">{{customer.address}}</td>
+                <td data-title="'State'" sortable="'state'" filter="{ 'state': 'text' }">{{customer.state}}</td>
+                <td data-title="'Country'" sortable="'country'" filter="{ 'country': 'text' }">{{customer.country}}</td>
                 <td>
                     <div class="table-actions">
                 <td>
